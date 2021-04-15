@@ -1,0 +1,184 @@
+
+/* Container used for styling the custom select, the buttom class adds the bg gradient, corners, etc. */
+.form-control {
+    position: relative;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center; 
+    border-radius: 4em;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    background: $neutral-color; 
+    text-align: center;
+    min-height: 4em;
+    margin: 0.3em 0.5em;
+    @include all-transition;
+    font-weight: 600;
+    flex-grow: 1;
+    //flex-basis: 34%;
+
+
+
+    &--wide {
+      flex-grow: 5;
+      //flex-basis: 60%;
+    }
+
+    &--bordered {
+      border: 1px solid rgb(49, 49, 49);
+      background-color: transparent;
+
+      &:hover {
+          border-color: $primary-color;          
+      }
+    }
+
+    &--primary{
+        
+        background-color: $primary-color;
+
+        &:hover{
+            background-color: darken($primary-color, 15%);
+            
+        }
+    }
+
+    select, button {
+      padding: .6em 1.9em .5em .8em;
+      line-height:2em;
+      padding: 9px 20px;
+      color: $neutral-color;
+      font-family: $base-font;
+      font-size: 1.2em;
+      cursor: pointer;
+      width: 100%;
+
+    }
+    
+    /* This is the native select, we're making everything the text invisible so we can see 
+    the button styles in the wrapper */
+    select {
+        width:100%;
+        margin:0;
+        background:none;
+        border: 1px solid transparent;
+        outline: none;
+        box-sizing: border-box;
+        appearance: none;
+        font-size:1.25em;
+        color: #444;
+      }
+
+
+      &--select:focus {
+          outline:none;
+          box-shadow: 0 0 1px 3px rgba(180,222,250, 1);
+          background-color:transparent;
+          color: #222;
+          border:1px solid #aaa;
+        }
+
+    /* Adding the dropdown icon*/
+      &--select::after {
+        content: "";
+        position: absolute;
+        width: 9px;
+        height: 8px;
+        top: 50%;
+        right: 1em;
+        margin-top:-4px;
+        z-index: 2;
+        background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12'%3E%3Cpolygon fill='rgb(102,102,102)' points='8,12 0,0 16,0'/%3E%3C/svg%3E") 0 0 no-repeat;  
+        pointer-events:none;
+      }
+
+
+      @include media-phone-only {
+        flex-basis: 100%;
+        margin-bottom: .7em;
+    }
+
+  }
+  
+  
+//   /* This hides native dropdown button arrow in IE 10/11+ so it will have the custom appearance, IE 9 and earlier get a native select */
+//   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+//     .dropdown select::-ms-expand {
+//       display: none;
+//     }
+//     /* Removes the odd blue bg color behind the text in IE 10/11 and sets the text to match the focus style text */
+//     select:focus::-ms-value {
+//       background: transparent;
+//       color: #222;
+//     }
+//   }
+  
+//   /* Firefox >= 2 -- Older versions of FF (v2 - 6) won't let us hide the native select arrow, so we'll just hide the custom icon and go with native styling */
+//   /* Show only the native arrow */
+//   body:last-child .dropdown::after, x:-moz-any-link {
+//     display: none;
+//   }
+//   /* reduce padding */
+//   body:last-child .dropdown select, x:-moz-any-link {
+//     padding-right: .8em;
+//   }
+  
+//   /* Firefox 7+ -- Will let us hide the arrow, but inconsistently (see FF 30 comment below). We've found the simplest way to hide the native styling in FF is to make the select bigger than its container. */
+//   /* The specific FF selector used below successfully overrides the previous rule that turns off the custom icon; other FF hacky selectors we tried, like `*>.dropdown::after`, did not undo the previous rule */
+  
+//   /* Set overflow:hidden on the wrapper to clip the native select's arrow, this clips hte outline too so focus styles are less than ideal in FF */
+//   _::-moz-progress-bar, body:last-child .dropdown {
+//     overflow: hidden;
+//   }
+//   /* Show only the custom icon */
+//   _::-moz-progress-bar, body:last-child .dropdown:after {
+//     display: block;
+//   }
+//   _::-moz-progress-bar, body:last-child .dropdown select {
+//     /* increase padding to make room for menu icon */
+//     padding-right: 1.9em;
+//     /* `window` appearance with these text-indent and text-overflow values will hide the arrow FF up to v30 */
+//     -moz-appearance: window;
+//     text-indent: 0.01px;
+//     text-overflow: "";
+//     /* for FF 30+ on Windows 8, we need to make the select a bit longer to hide the native arrow */
+//     width: 110%;
+//   }
+  
+  
+//   /* Hover style */
+//   .dropdown:hover {
+//     border:1px solid #888;
+//   }
+  
+//   /* Focus style */
+//   select:focus {
+//     outline:none;
+//     box-shadow: 0 0 1px 3px rgba(180,222,250, 1);
+//     background-color:transparent;
+//     color: #222;
+//     border:1px solid #aaa;
+//   }
+  
+  
+  
+  
+//   option {
+//     font-weight:normal;
+//   }
+  
+  
+//   /* These are just demo button-y styles, style as you like */
+  // .button {
+  //   border: 1px solid #bbb;
+  //   border-radius: .3em;
+  //   box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  //   background: #f3f3f3; /* Old browsers */
+  //   background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+  //   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+  //   background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+  //   background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+  //   background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+  //   background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
+  // }
+  

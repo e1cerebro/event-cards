@@ -1,0 +1,135 @@
+.card{
+    background-color: $neutral-color;
+    border-radius: 20px;
+    min-height: 500px;
+    flex-basis: 45%;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.7em;
+    @include all-transition;
+
+      
+    &__header{
+        min-height: 230px;
+        background-image: url("../../../images/yosmite-natrional-park.jpeg");
+        background-size: cover;
+        border-radius:20px 20px 0 0px;
+        background-position: center center;
+
+        @include media-tablet-portrait-up{
+            min-height: 240px;
+        }
+    }
+
+    &__body{
+        padding: 2.5em;
+
+        @include media-phone-only {
+            flex-basis: 100%;
+            margin-bottom: .7em;
+            padding: 30px 15px;
+        }
+
+        &__header{
+            
+        }
+    }
+
+    &__price {
+        font-family: $header-font;
+        font-size: 1.75em;
+        color: lighten($dark-color, 12%);
+        padding:10px 0;
+
+        span{
+            font-size: .7em;
+            font-weight: 400;
+        }
+    }
+
+    &__text {
+        padding: 0.2em 0 1.8em 0;
+        font-size: 1.3em;
+    }
+
+    &__controls_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        @include media-phone-only{
+            flex-wrap: wrap;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        width: 100%;
+        font-weight: 300;
+        font-size: 1.1em;
+        align-items: center;
+
+        &--border-top{
+            border-top: 1px solid #c3c3c3;
+        }
+
+        &--borderedX{
+            border-left: 1px solid #c3c3c3;
+            border-right: 1px solid #c3c3c3;
+        }
+
+        &__location {
+            flex-basis: 35%;
+            padding: 30px 19px;
+            text-align: center;
+
+            @include media-phone-only {
+                flex-basis: 50%;
+            }
+        }
+
+        &__distance {
+            flex-basis: 25%;
+            padding: 30px 19px;
+
+            @include media-phone-only {
+                flex-basis: 45%;
+            }
+
+            span{
+                font-style: italic;
+                display: block;
+            }
+        }
+
+        &__accessibility{
+            flex-basis: 50%;
+            padding: 30px 19px;
+            font-size: 1.3em;
+        }
+    }
+
+    @include media-phone-only {
+        flex-basis: 100%;
+    }
+
+    @include media-tablet-portrait-up{
+        flex-basis: 100%;
+    }
+
+    @include media-tablet-landscape-up{
+        flex-basis: 47%;
+    }
+
+}
+
+@for $i from 1 to 10 {
+    .card:nth-child(#{$i}) { 
+        animation-delay: $i * 0.3s;
+        animation-name: fadeInUpBig;
+        animation-duration: .75s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+     }
+}

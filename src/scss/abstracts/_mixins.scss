@@ -1,0 +1,30 @@
+
+// --- MEDIA QUERIES ---
+
+@mixin media-phone-only {
+    @media screen and (max-width: $media-phone-only) { @content; }
+}
+
+@mixin media-tablet-portrait-up {
+    @media screen and (min-width: $media-tablet-portrait-up) { @content; }
+}
+
+@mixin media-tablet-landscape-up {
+    @media screen and (min-width: $media-tablet-landscape-up) { @content; }
+}
+
+@mixin media-desktop-up {
+    @media screen and (min-width: $media-desktop-up) { @content; }
+}
+
+@mixin media-big-desktop-up {
+    @media screen and (min-width: $media-big-desktop-up) { @content; }
+}
+
+
+// --- TRANSITION EFFECTS ---
+
+@mixin all-transition {
+    transition: all 0.35s ease-in;
+}
+

@@ -1,0 +1,30 @@
+.select {
+
+    line-height:2em;
+    padding: 0.6em 2.1em;
+    font-family: $base-font;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 4em;
+    width: 100%;
+    box-shadow: 0 0.07em 0 0.07em $darker-color;
+    font-weight: $normal-weight;
+    display: inline-block;
+    @include all-transition;
+    border: 0.07em solid $dark-color;
+    background-color: transparent;
+    margin:0;
+    outline: none;
+    box-sizing: border-box;
+    appearance: none;
+
+    &:hover {
+        border-color: $primary-color;          
+    }
+
+    &--select:focus {
+        outline:none;
+        box-shadow: 0 0 0.07em 0.2em $light-blue;
+    }
+
+}

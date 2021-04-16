@@ -1,0 +1,22 @@
+.btn {
+    line-height:2em;
+    padding: 0.6em 1.4em;
+    color: $neutral-color;
+    font-family: $base-font;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 4em;
+    width: 100%;
+    font-weight: $normal-weight;
+    @include all-transition;
+   
+
+    &--primary{
+          
+          background-color: $primary-color;
+
+          &:hover{
+              background-color: darken($primary-color, 15%);
+          }
+    }
+}

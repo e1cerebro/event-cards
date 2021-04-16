@@ -1,15 +1,28 @@
+ /*=== Colors ===*/
 $primary-color: #cd4a40;
 $secondary-color: #fbf8f3;
 $neutral-color: #fff;
 $dark-color: #515151;
+$darker-color: rgba(0,0,0,.04);
+$light-grey: #c3c3c3;
+$light-blue: rgba(180,222,250, 1);
 
-// font styles
+ /*=== font styles ===*/ 
 $base-font:  'Inter', sans-serif;
 $header-font:  "Orpheus Pro", cursive;
 
-//media screen sizes
+/*=== font weight ===*/
+$light-weight: 300;
+$normal-weight: 400;
+$bold-weight: 600;
+
+/*=== media screen sizes ===*/
 $media-phone-only:  599px;
 $media-tablet-portrait-up: 600px;
 $media-tablet-landscape-up: 900px;
 $media-desktop-up: 1200px;
 $media-big-desktop-up: 1800px;
+
+
+/*=== border raduius ===*/
+$border-radius-curve: 1.8em;

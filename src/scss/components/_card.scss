@@ -1,25 +1,26 @@
 .card{
     background-color: $neutral-color;
-    border-radius: 20px;
-    min-height: 500px;
-    flex-basis: 45%;
-    flex-wrap: wrap;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    border-radius: $border-radius-curve;
+    min-height: 35.7em;
     margin-bottom: 2.7em;
     @include all-transition;
 
-      
     &__header{
-        min-height: 230px;
-        background-image: url("../../../images/yosmite-natrional-park.jpeg");
+        min-height: 16.5em;
         background-size: cover;
-        border-radius:20px 20px 0 0px;
+        border-radius:$border-radius-curve $border-radius-curve 0px 0px;
         background-position: center center;
 
         @include media-tablet-portrait-up{
-            min-height: 240px;
+            min-height: 17em;
         }
+    }
+
+    &__title {
+        font-size: 2em;
     }
 
     &__body{
@@ -27,33 +28,28 @@
 
         @include media-phone-only {
             flex-basis: 100%;
-            margin-bottom: .7em;
-            padding: 30px 15px;
-        }
-
-        &__header{
-            
+            margin-bottom: 0.7em;
+            padding: 2.1em 1.0em;
         }
     }
 
     &__price {
-        font-family: $header-font;
-        font-size: 1.75em;
+        font-size: 1.65em;
         color: lighten($dark-color, 12%);
-        padding:10px 0;
+        padding: 0.7em 0;
 
         span{
-            font-size: .7em;
-            font-weight: 400;
+            font-size: .75em;
+            font-weight: $normal-weight;
         }
     }
 
-    &__text {
+    &__description {
         padding: 0.2em 0 1.8em 0;
         font-size: 1.3em;
     }
 
-    &__controls_wrapper {
+    &__controls-wrapper {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
@@ -64,25 +60,29 @@
     }
 
     &__footer {
-        display: flex;
-        width: 100%;
-        font-weight: 300;
-        font-size: 1.1em;
+        display: flex;        
         align-items: center;
+        width: 100%;
+        font-weight: $light-weight;
+        font-size: 1.1em;
 
         &--border-top{
-            border-top: 1px solid #c3c3c3;
+            border-top: 0.07em solid $light-grey;
         }
 
         &--borderedX{
-            border-left: 1px solid #c3c3c3;
-            border-right: 1px solid #c3c3c3;
+            border-left: 0.07em solid $light-grey;
+            border-right: 0.07em  solid $light-grey;
         }
 
         &__location {
             flex-basis: 35%;
-            padding: 30px 19px;
+            padding: 2.1em 1.3em;
             text-align: center;
+
+            i {
+                padding-right: 0.5em;
+            }
 
             @include media-phone-only {
                 flex-basis: 50%;
@@ -91,7 +91,10 @@
 
         &__distance {
             flex-basis: 25%;
-            padding: 30px 19px;
+            padding: 2.1em 1.3em;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
 
             @include media-phone-only {
                 flex-basis: 45%;
@@ -105,7 +108,7 @@
 
         &__accessibility{
             flex-basis: 50%;
-            padding: 30px 19px;
+            padding: 2.1em 1.3em;
             font-size: 1.3em;
         }
     }
@@ -119,17 +122,18 @@
     }
 
     @include media-tablet-landscape-up{
-        flex-basis: 47%;
+        flex-basis: 48%;
     }
 
 }
 
-@for $i from 1 to 10 {
+//Dynmaically add the fadeInBig effect to the cards
+@for $i from 1 to 5 {
     .card:nth-child(#{$i}) { 
         animation-delay: $i * 0.3s;
         animation-name: fadeInUpBig;
         animation-duration: .75s;
-        animation-timing-function: ease-out;
+        animation-timing-function: ease;
         animation-fill-mode: both;
      }
 }
